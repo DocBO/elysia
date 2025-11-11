@@ -1,0 +1,20 @@
+- [ ] Add Redis settings (env) with sensible defaults: `REDIS_URL` (default `redis://localhost:6379/0`), `AUTH_REDIS_SET` (default `elysia:auth:tokens`).
+- [ ] Add a small auth module `elysia/api/security/auth.py`:
+  - `get_redis()` singleton client
+  - `validate_bearer(token: str) -> bool` (UUID format + Redis membership)
+  - FastAPI dependency `require_bearer(request)` raising 401 on failure
+- [ ] Apply REST protection:
+  - Add `dependencies=[Depends(require_bearer)]` to every router include in `app.py` or use a global dependency.
+  - Ensure health check is also protected (unless explicitly exempted).
+- [ ] Apply WebSocket protection:
+  - Read token from `Authorization` header (Bearer) or `?token=` query.
+  - Validate before `websocket.accept()`; on failure, close with code 1008 (policy violation).
+- [ ] Tests:
+  - Unit tests for UUID parsing and Redis set membership.
+  - API tests (REST 200 with valid token, 401 without/invalid).
+  - WS tests (connect success with token, fail without).
+  - Redis unavailable → 503 fail-closed.
+- [ ] Docs:
+  - Add short security section documenting Bearer token requirement, WS usage, env vars, Redis schema.
+- [ ] Tooling:
+  - Optional script to seed tokens in Redis for local dev.

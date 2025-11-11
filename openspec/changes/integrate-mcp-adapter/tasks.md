@@ -1,0 +1,7 @@
+- [ ] Create MCP Adapter Tool skeleton in `elysia/tools/mcp/adapter.py` with no external deps (JSON-RPC interface stub).
+- [ ] Add minimal config surface (server endpoint, auth token) via Settings/Config, but keep defaults no-op.
+- [ ] Implement `list_tools()` and `invoke(tool, args)` paths; map outputs to Text Result for v1.
+- [ ] Expose the Tool to the decision tree (optional add via code or dynamic import) and verify appears in `/tools/available` metadata.
+- [ ] Add basic unit tests with a mock MCP server stub (stdio or in-memory) covering list/invoke and error handling.
+- [ ] Update docs: brief “MCP Integration (beta)” section with usage and limits.
+- [ ] Validation: run tests; manual check that normal Weaviate flows unaffected; toggle MCP off/on via config.

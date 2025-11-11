@@ -41,6 +41,7 @@ nav:
     - Environment: Advanced/environment.md
   - API: 
     - Overview: API/index.md
+    - Endpoints: API/endpoints.md
     - User Management: API/user_and_tree_managers.md
     - Payload Formats: API/payload_formats.md
  

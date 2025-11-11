@@ -1,0 +1,10 @@
+- [ ] Add REST endpoint `POST /collections/{user_id}/upload` (multipart) with CSV/JSONL parsing and basic validation.
+- [ ] Add WS `WS /ws/upload_progress` to stream `{progress, inserted, updated, errors, status}` by `upload_id`.
+- [ ] Implement schema inference + conditional collection creation; support `upsert` by `id_property`.
+- [ ] Batch insert with backpressure and periodic progress emits; collect row-level errors.
+- [ ] Optional finalize endpoint to trigger preprocess on success.
+- [ ] Introduce `EmbeddingManager` singleton (provider-agnostic, batch API, LRU cache) in backend; expose via Settings.
+- [ ] Wire EmbeddingManager where needed (preprocessing/ingestion/tools) without spawning new embedders per request.
+- [ ] Enforce Bearer + Redis on new endpoints; reuse existing auth dependency.
+- [ ] Tests: unit (schema inference, batching, upsert), integration (upload happy path, WS progress, preprocess trigger), embedder reuse.
+- [ ] Docs: API usage (REST/WS), file formats, options, limits, and embedder configuration.

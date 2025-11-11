@@ -1,0 +1,8 @@
+- [ ] Add spec docs for resources (Dataset, Job) with required fields and open metadata.
+- [ ] Define MCP tools for discovery, dataset lifecycle, policies, S3 ops, ingestion/validation, and jobs.
+- [ ] Capture open state/policy models; forbid clients from assuming closed enums.
+- [ ] Add versioning guidance (server_version, mcp_version, feature flags) to capabilities.
+- [ ] Sketch event subscription as optional (non-blocking for v1).
+- [ ] Provide example request/response bodies (JSON) for `start_ingest` and `job_status`.
+- [ ] Note auth and secret handling (presigned URLs; no raw creds to clients).
+- [ ] Validate OpenSpec structure locally once CLI is available; plan to migrate spec to orchestrator repo later.
